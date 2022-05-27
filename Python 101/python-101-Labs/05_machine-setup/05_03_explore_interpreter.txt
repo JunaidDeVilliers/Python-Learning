@@ -1,0 +1,11 @@
+Explore the interpreter:
+
+- Execute lines with syntax error and see what the response is.
+  - What happens if you leave out a quotation or parenthesis?
+      Prints 3 dots and does nothing beyond that
+  - How helpful are the error messages?
+      unclear
+
+- Use the `help()` function to explore what you can do with the interpreter.
+  - For example execute `help('print')`.
+  - Press `q` to exit.
