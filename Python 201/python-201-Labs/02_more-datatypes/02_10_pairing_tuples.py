@@ -17,3 +17,26 @@ from resources import randlist
 print(randlist)
 
 # Write your code below here
+
+
+my_new_list = []
+temp = []
+randlist.sort()
+
+if len(randlist) % 2 != 0:
+    randlist.append(0)
+
+
+for i in range(len(randlist)):
+    if i % 2 != 0 and i > 0:
+        temp.append(randlist[i])
+        temp = tuple(temp)
+        my_new_list.append(temp)
+        temp = list(temp)
+        temp = []
+    else:
+        temp.append(randlist[i])
+        temp = tuple(temp)
+        temp = list(temp)
+
+print(my_new_list)

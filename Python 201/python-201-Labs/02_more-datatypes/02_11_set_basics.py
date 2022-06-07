@@ -4,3 +4,9 @@
 
 s = {1, 2, 3, 4}
 t = {3, 4, 5, 6}
+
+set_intersection = s & t
+print(set_intersection)
+
+set_union = s | t
+print(set_union)
