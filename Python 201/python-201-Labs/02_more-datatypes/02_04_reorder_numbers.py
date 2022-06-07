@@ -6,3 +6,22 @@
 #
 # Example input:  1,2,3,4,5,6,7,8,9,10
 # Example output: 2,4,6,8,10,9,7,5,3,1
+
+
+my_list = []
+tracker = 1
+
+print("Enter whole numbers")
+
+while tracker <= 10:
+    num = input(f"Enter number {tracker}: ")
+
+    if num.isdigit() == True:
+        num = int(num)
+        my_list.append(num)
+        tracker += 1
+    else:
+        print("Invalid input")
+
+print(my_list[1::2])
+print(my_list[len(my_list) - 2::-2])

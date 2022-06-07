@@ -5,3 +5,15 @@
 # - Convert the list back into a tuple.
 
 string = "codingnomads"
+
+string = tuple(string)
+print(f"Tuple: {string}")
+
+string = list(string)
+print(f"List: {string}")
+
+string[0] = "k"
+print(f"Changed list: {string}")
+
+string = tuple(string)
+print(f"Tuple: {string}")

@@ -7,4 +7,14 @@
 
 from resources import randlist
 
-print(randlist)
+my_list = randlist
+print(f"List: {my_list}")
+my_list.sort()
+largest = my_list[len(my_list) - 1]
+product = 1
+
+for item in my_list:
+    product *= item
+
+print("Largest Number: " + str(largest))
+print("Product of all numbers: " + str(product))
