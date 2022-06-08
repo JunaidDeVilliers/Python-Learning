@@ -9,3 +9,16 @@
 
 dict_1 = {"a": 1, "b": 2, "c": 3}
 dict_2 = {"a": 2, "c": 4 , "d": 2}
+new_dict = {}
+
+for i in dict_1:
+    if i in dict_2:
+        new_dict[i] = dict_1[i] + dict_2[i]
+    elif i not in dict_2:
+        new_dict[i] = dict_1[i]
+
+for i in dict_2:
+    if i not in new_dict:
+        new_dict[i] = dict_2[i]
+
+print(new_dict)
