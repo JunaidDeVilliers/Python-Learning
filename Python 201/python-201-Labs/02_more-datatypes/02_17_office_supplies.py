@@ -22,3 +22,8 @@ office = [
     {"full_name": "Creed Bratton", "item": "mung beans"},
     {"full_name": "Darryl Philbin", "item": "forklift"},
 ]
+
+for i in office:
+    full_name = i['full_name'].split()
+    full_name = full_name[1] + ", " + full_name[0]
+    print(f"{full_name.ljust(30)} {i['item']}")
