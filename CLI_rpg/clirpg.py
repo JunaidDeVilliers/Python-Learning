@@ -21,7 +21,7 @@ while player_actions["playing"] == True:
 
     # First while loop to make sure user selects a valid door. Will repeat until valid answer is given
     while player_actions["door"] != "left" and player_actions["door"] != "right" and player_actions["door"] != "middle":
-        player_actions["door"] = input("You see 2 doors ahead will you go left or right: ")
+        player_actions["door"] = input("You see 3 doors ahead will you go left, right or middle: ")
         
         if player_actions["door"] == "left":
 
@@ -33,6 +33,12 @@ while player_actions["playing"] == True:
             print("You have chosen the left door")
         elif player_actions["door"] == "right":
             print("You have chosen the right door")
+        elif player_actions["door"] == "middle":
+            print("You have chosen middle door")
+            if "sword" in inventory and inventory["sword"] == "Infused sword":
+                print("You investigate the middle room again and find nothing so you return")
+                player_actions["door"] = None
+                continue
         else:
             print("Invalid input. Please input only left or right")
     
@@ -41,9 +47,32 @@ while player_actions["playing"] == True:
         while player_actions["door"] == "left":
             player_actions["choice"] = input("You arrive at an empty room, you can either search or go back? ")
             
-            if player_actions["choice"] == "search":
+            if player_actions["choice"] == "search" and "gem" in inventory and inventory["gem"] == "Powergem":
+                print("All you find is a regular sword, you pick it up and infuse your powergem into it creating an infused sword")
+                print("You go back")
+                inventory["sword"] = "Infused sword"
+                player_actions["door"] = None
+            elif player_actions["choice"] == "search":
                 print("All you find is a regular sword, you pick it up and go back")
                 inventory["sword"] = "Regular sword"
+                player_actions["door"] = None
+            elif player_actions["choice"] == "back":
+                player_actions["door"] = None
+            else:
+                print("invalid choice. Please choose search/back")
+    
+    # actions for when user chose the middle door
+    elif player_actions["door"] == "middle":
+        while player_actions["door"] == "middle":
+            player_actions["choice"] = input("You arrive at an empty room, you can either search or go back? ")
+            
+            if player_actions["choice"] == "search" and "sword" in inventory and inventory["sword"] == "Regular sword":
+                print("You find a powergem that can be infused in your sword, you infuse your sword and go back")
+                inventory["sword"] = "Infused sword"
+                player_actions["door"] = None
+            elif player_actions["choice"] == "search":
+                print("You find a powergem that can be used to infuse a weapon, you pick it up and go back")
+                inventory["gem"] = "Powergem"
                 player_actions["door"] = None
             elif player_actions["choice"] == "back":
                 player_actions["door"] = None
@@ -58,7 +87,12 @@ while player_actions["playing"] == True:
             # if you fight the dragon with the sword you win, otherwise you lose
             if player_actions["choice"] == "fight":
                 if "sword" in inventory and inventory["sword"] == "Regular sword":
-                    print("You use the sword to beat the dragon")
+                    print(f"You use the {inventory['sword']} to beat the dragon")
+                    print("You have won the game")
+                    player_actions["door"] = None
+                    player_actions["playing"] = False
+                elif "sword" in inventory and inventory["sword"] == "Infused sword":
+                    print(f"You use the {inventory['sword']} to beat the dragon")
                     print("You have won the game")
                     player_actions["door"] = None
                     player_actions["playing"] = False
