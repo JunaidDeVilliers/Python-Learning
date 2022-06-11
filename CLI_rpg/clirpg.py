@@ -11,6 +11,9 @@
 # element can have an effect on whether your player wins or loses when battling an opponent.
 
 
+from random import randint
+
+
 name = input("Enter your character name: ")
 print("Welcome " + name + " to my Text Adventure")
 
@@ -36,6 +39,10 @@ while player_actions["playing"] == True:
         elif player_actions["door"] == "middle":
             print("You have chosen middle door")
             if "sword" in inventory and inventory["sword"] == "Infused sword":
+                print("You investigate the middle room again and find nothing so you return")
+                player_actions["door"] = None
+                continue
+            elif "gem" in inventory and inventory["gem"] == "Powergem":
                 print("You investigate the middle room again and find nothing so you return")
                 player_actions["door"] = None
                 continue
@@ -86,14 +93,23 @@ while player_actions["playing"] == True:
             
             # if you fight the dragon with the sword you win, otherwise you lose
             if player_actions["choice"] == "fight":
+                odds = randint(1, 30)
                 if "sword" in inventory and inventory["sword"] == "Regular sword":
-                    print(f"You use the {inventory['sword']} to beat the dragon")
-                    print("You have won the game")
+                    if odds > 15:
+                        print(f"You use the {inventory['sword']} to beat the dragon")
+                        print("You have won the game")
+                    else:
+                        print(f"Your {inventory['sword']} was not enough to win the fight")
+                        print("game over")
                     player_actions["door"] = None
                     player_actions["playing"] = False
                 elif "sword" in inventory and inventory["sword"] == "Infused sword":
-                    print(f"You use the {inventory['sword']} to beat the dragon")
-                    print("You have won the game")
+                    if odds > 5:
+                        print(f"You use the {inventory['sword']} to beat the dragon")
+                        print("You have won the game")
+                    else:
+                        print(f"Your {inventory['sword']} was not enough to win the fight")
+                        print("game over")
                     player_actions["door"] = None
                     player_actions["playing"] = False
                 else:
