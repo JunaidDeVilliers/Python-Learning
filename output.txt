@@ -1,0 +1,1 @@
+{'Junaid': 23, 'Tauriq': 17, 'Tashriq': 13, 'Ishaaq': 25}
