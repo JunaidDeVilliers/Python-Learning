@@ -9,7 +9,7 @@ file_in = open("filecounts.txt", "r")
 # After creating a file object in read mode, you can use .read() to read the entire content of your 
 # file into memory:
 
-contents = file_in.read()
+contents = file_in.readline()
 file_in.close()
 
 
