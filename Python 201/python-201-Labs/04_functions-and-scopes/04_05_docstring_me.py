@@ -3,7 +3,14 @@
 # and what it returns.
 
 def km_to_miles(km):
-    """Add your docstring here."""
+    """Converts kilometers to miles
+
+    Args:
+        km (num): The amount of kilometers you want converted to miles
+
+    Returns:
+        Your km converted to miles
+    """
     miles = km * 0.6
     return miles
 
