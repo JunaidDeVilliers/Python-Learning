@@ -32,6 +32,8 @@ deactivate () {
     # Self destruct!
         unset -f deactivate
     fi
+
+    unset MY_SUPER_SECRET_SECRET
 }
 
 # unset irrelevant variables
@@ -74,3 +76,5 @@ fi
 if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
     hash -r
 fi
+
+export MY_SUPER_SECRET_SECRET="OMG this is so secret I can't even say!"

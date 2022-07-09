@@ -1,0 +1,43 @@
+When you do any project-specific development, you always want to avoid setting anything for your 
+whole system. This holds for your third-party Python packages. The same counts for secrets, which are 
+usually project-specific.
+
+It's a much better idea to set these types of environment variables inside of your virtual environment. 
+In this course, these types of variables will be called virtual environment variables.
+
+Using environment variables inside of a Python virtual environment is easier than having to first 
+export and then unset each variable every time that you want to work on a project.
+
+Start by creating a virtual environment for your Python project:
+
+*   python3 -m venv venv
+
+After you successfully created a virtual environment, open the activate script in your favorite text 
+editor.
+
+This Bash script runs every time your venv gets activated, which makes it a good place to let your 
+computer know which environment variables you would like to have access to, and which ones to get rid 
+of once you exit the virtual environment.
+
+You'll now edit the activate script and hard-code the values you want in there. First, you need to 
+make sure that your virtual environment variables won’t stick around once you deactivated them, so 
+you start by unsetting the environment variable that you haven't even created yet.
+
+To unset a virtual environment variable, you add an unset command to the deactivate command section in 
+your Bash activate script. The code in this part of the script runs every time you deactivate your 
+virtual environment.
+
+For example, to unset the variable MY_SUPER_SECRET_SECRET, you need to add the following line of Bash 
+code:
+
+deactivate () {
+    unset MY_SUPER_SECRET_SECRET
+    # Lots of other code
+}
+
+Adding this line in the deactivate section makes sure that your virtual environment variables won't 
+leak into your system environment. Instead, they'll exist only within your virtual environment.
+
+Once you wrote the code to unset your variable, it's time to make sure you also set it, so it'll 
+exist in the first place.
+
