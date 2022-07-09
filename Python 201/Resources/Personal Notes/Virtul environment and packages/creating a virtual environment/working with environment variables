@@ -1,0 +1,35 @@
+In this first lesson about environment variables, you'll learn how to inspect, add, and remove them 
+directly from the Bash command line.
+
+Open up your CLI and type the Bash command printenv. This will give you a list of all the current 
+environment variables present on your system:
+
+You can check the value of each variable with echo $<NAME>. For example, to check the value of LOGNAME, you can type the following command:
+
+*   echo $LOGNAME
+
+The output you receive when running the same command will be what your LOGNAME variable points to. You can confirm this value also by running printenv and looking for LOGNAME in your output.
+
+Using Bash in your CLI, you can add a new environment variable with the following command:
+
+*   export <NAME>=<VALUE>
+
+In this example, you'll have to replace <NAME> with the new environment variable that you want to add. You also need to replace <VALUE> with the value you want to assign to that environment variable.
+
+For example, to add a new variable with the name DAY and the value Sunday, you would spell it out as follows:
+
+*   export DAY=Sunday
+
+In order to remove an environment variable with Bash, you'll have to call the following command:
+
+*   unset <NAME>
+
+Again, you'll have to add the actual name of the variable you want to remove instead of the placeholder <NAME>:
+
+*   unset DAY
+
+This Bash command removes the DAY variable you set before.
+
+However, when you are working on a project that requires a specific API key, you don't want to set your environment variables across your whole system environment. The value will be project-specific, which is why you should compartmentalize your environment variables just like you did for your dependencies by including them into your virtual environments.
+
+

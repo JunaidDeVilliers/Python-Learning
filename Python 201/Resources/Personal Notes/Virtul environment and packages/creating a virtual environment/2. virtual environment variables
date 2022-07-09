@@ -1,0 +1,13 @@
+In this lesson, you'll learn about environment variables in Bash. This concept is not specific to Python. It's instead a common standard used across different areas of software development.
+
+Environment variables are dynamic-named values, which you can access from anywhere in your current environment. They can help you make running your scripts more user-friendly and secure, and are shared across all applications in your current environment.
+
+In UNIX systems, the most famous one of them is $PATH, which specifies file paths where your system looks for executable files.
+
+You can access the value of your environment variables anywhere in your project without ever spelling out the actual value of that variable. Instead, you can refer to it through the environment variable defined in Bash.
+
+That way you can work with secrets and passwords throughout your project, and commit all project-relevant code to GitHub while keeping your sensitive information safe and to yourself.
+
+Many larger programs that you'll build will include some setting information that you don't want to share with the world. Think about API keys for web service calls or database login credentials. However, you might still want to be able to collaborate online with other developers on your code through GitHub.
+
+Environment variables can help you with generalizing the setup of your applications, as well as with separating out sensitive information so that you'll have an easier time keeping that information safe.

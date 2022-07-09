@@ -1,0 +1,32 @@
+You can automatically generate the folder structure for a virtual environment (venv) in one line of code, activate it with a second command, and deactivate it with yet another one. To get started working with virtual environments, you only need to know these three commands.
+
+To create a new virtual environment that is set up for all your Python development needs, you'll need to run the following command:
+*    python3 -m venv your_venv_name
+
+This is a Bash command, where you're using the program python3, which is your system-wide installation of Python 3, to call one of its built-in modules (-m) called venv. The venv module that comes with Python's standard library allows you to create virtual environments. As the final part of this command, you need to provide a name for your new virtual environment.
+
+It's a default to call your virtual environments env or venv but you could name them anything you want. You'll just need to remember what you called it because you need its name to activate it in the next step.
+
+Note: Make sure that your virtual environment's path does not include any whitespace. Otherwise, the executables won't be found and you might end up accidentally using the system-wide install of pip. See this StackOverflow answer for more information. 
+
+It's strongly suggested to stick with a default name, and this course will use venv as a name for any virtual environments created. Therefore, to create a virtual environment with that default name, you'd run the following command:
+*    python3 -m venv venv
+
+In order to enter your new venv you'll have to activate it by typing the following command:
+*    source your_env_name/bin/activate
+
+The source command runs the activate script of your venv.
+
+After the command has finished executing, you'll see your command prompt has slightly changed. As an indicator that you are now inside of the virtual environment, you'll see the name of your venv in brackets in front of each new line in your terminal:
+
+Now you're ready to do all the work you need to do on the project that you created the venv for. From the terminal window where you activated your venv, you'd install all the packages you need:
+
+*    python3 -m pip install mypy
+
+To return to your normal system's environment you only need to type one passphrase into the console:
+
+*    deactivate
+
+The indication that you're in the venv will disappear and your shell will show your normal prompt again.
+
+
