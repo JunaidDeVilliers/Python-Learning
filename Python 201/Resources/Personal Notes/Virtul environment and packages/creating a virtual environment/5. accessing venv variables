@@ -1,0 +1,17 @@
+To use one of your virtual environment variables inside of your Python project, you need to access it. 
+You can do that for example with Python's os module that comes packaged with the standard library:
+
+import os
+
+secret = os.environ['MY_SUPER_SECRET_SECRET']
+print(secret)
+
+You'll be able to run this code from any file in your project, as long as your virtual environment is 
+activated, and an environment variable called MY_SUPER_SECRET_SECRET is defined.
+
+If you don't want your script to terminate with an exception when you didn't define the environment 
+variable, then you can use Python's dict.get() method instead of doing a direct lookup.
+
+
+Note: Make sure that you add your virtual environment folder to your .gitignore file, or you'll end 
+up pushing your secrets to GitHub after all. 
